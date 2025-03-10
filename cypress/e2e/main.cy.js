@@ -12,10 +12,9 @@ describe("main E2E 테스트", () => {
       distance: `5분 내`,
     };
 
-    cy.get(".modal form select[name='category']").invoke("val", inputTest.category);
-    cy.get(".modal form input[name='name']").invoke("val", inputTest.name);
-    cy.get(".modal form select[name='distance']").invoke("val", inputTest.distance);
-
+    cy.get(".modal form select[name='category']").select(inputTest.category, { force: true });
+    cy.get(".modal form input[name='name']").type(inputTest.name);
+    cy.get(".modal form select[name='distance']").select(inputTest.distance);
     cy.get(".modal form").submit();
 
     cy.get(".restaurant-list li").should("contain", inputTest.name).and("contain", inputTest.distance);
