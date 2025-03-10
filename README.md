@@ -171,7 +171,7 @@
 - [x] e2e 테스트 코드 수정
   - [x] exist -> be.visible 방식으로 변경 (setTimeout 써야함.)
   - [x] invoke("val", value) -> select()와 type() , category 요소 가려져서 force 옵션 사용
-- [ ] html lang 변경
+- [x] html lang 변경
 - [ ] 정적요소, 동적요소 분리
 - [ ] modal 컴포넌트 동적 생성 (modal-open 버튼 클릭시)
 - [ ] form-item 컴포넌트의 label for 속성 변경
