@@ -179,3 +179,4 @@
 - [x] form-item 컴포넌트 리팩토링
   - [x] MODAL_FORM_PROPERTY 내부 데이터 값 변경 (생 데이터 값만)
 - [x] MODAL_FORM_PROPERTY + MODAL_BUTTONS_PROPERTY -> MODAL_FORM_CONFIG
+- [x] label 값 매치함수 제작
