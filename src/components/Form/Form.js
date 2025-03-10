@@ -1,13 +1,13 @@
 import ButtonsForm from "./ButtonsForm.js";
 import FormItem from "./FormItem.js";
 
-function Form(formsProperty, buttonsProperty) {
+function Form({ fields, buttons }) {
   const formElement = document.createElement("form");
 
-  formsProperty.forEach((formProperty) => {
+  fields.forEach((formProperty) => {
     formElement.appendChild(FormItem(formProperty));
   });
-  formElement.appendChild(ButtonsForm(buttonsProperty));
+  formElement.appendChild(ButtonsForm(buttons));
 
   return formElement;
 }
