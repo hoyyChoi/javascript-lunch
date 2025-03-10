@@ -162,3 +162,17 @@
 - [x] 리팩토링
   - [x] main.js 함수 분리 -> 컨트롤러로 모듈 분리 (header, list, modal)
   - [x] EventHandler 리팩토링
+
+---
+
+### 피드백 바탕 수정 사항
+
+- [ ] header.cy.js -> exist 스펠링 오타, setTimeOut 비동기 처리 제거
+- [ ] e2e 테스트 코드 수정
+  - [ ] exist -> be.visible 방식으로 변경
+  - [ ] invoke("val", value) -> select()와 type()
+- [ ] html lang 변경
+- [ ] 정적요소, 동적요소 분리
+- [ ] modal 컴포넌트 동적 생성 (modal-open 버튼 클릭시)
+- [ ] form-item 컴포넌트의 label for 속성 변경
+- [ ] form-item 컴포넌트 innerHTML -> createElement로 변경
