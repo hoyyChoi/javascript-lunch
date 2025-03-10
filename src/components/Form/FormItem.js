@@ -1,4 +1,8 @@
-function FormItem({ label, formComponent, notice = "", required = false }) {
+import InputForm from "./InputForm.js";
+import SelectForm from "./SelectForm.js";
+import TextareaForm from "./TextareaForm.js";
+
+function FormItem({ label, type, name, options, inputType = "text", notice = "", required = false }) {
   const formItemElement = document.createElement("div");
   formItemElement.classList.add("form-item");
 
@@ -6,12 +10,32 @@ function FormItem({ label, formComponent, notice = "", required = false }) {
     formItemElement.classList.add("form-item--required");
   }
 
-  formItemElement.innerHTML = `<label for="category text-caption">${label}</label>`;
-  formItemElement.appendChild(formComponent());
+  const labelElement = document.createElement("label");
+  labelElement.setAttribute("for", name);
+  labelElement.textContent = label;
+  formItemElement.appendChild(labelElement);
 
-  if (notice) formItemElement.innerHTML += `<span class="help-text text-caption">${notice}</span>`;
+  const formComponent = matchFormComponent({ type, name, options, inputType, required });
+  formItemElement.appendChild(formComponent);
+
+  if (notice) {
+    const noticeElement = document.createElement("span");
+    noticeElement.classList.add("help-text");
+    noticeElement.textContent = notice;
+    formItemElement.appendChild(noticeElement);
+  }
 
   return formItemElement;
 }
 
 export default FormItem;
+
+function matchFormComponent({ type, name, options, inputType, required }) {
+  if (type === "select") {
+    return SelectForm(name, options);
+  }
+  if (type === "textarea") {
+    return TextareaForm(name);
+  }
+  return InputForm(inputType, name, required);
+}
