@@ -40,7 +40,7 @@ describe("modal E2E 테스트", () => {
     cy.get(".modal form button[type='button']").click();
 
     setTimeout(() => {
-      cy.get(".modal--open").should("not.exist");
+      cy.get(".modal--open").should("not.be.visible");
     }, 1000);
   });
 
@@ -49,7 +49,7 @@ describe("modal E2E 테스트", () => {
     cy.get(".modal-backdrop").click({ force: true });
 
     setTimeout(() => {
-      cy.get(".modal--open").should("not.exist");
+      cy.get(".modal--open").should("not.be.visible");
     }, 1000);
   });
 });
