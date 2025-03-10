@@ -180,3 +180,4 @@
   - [x] MODAL_FORM_PROPERTY 내부 데이터 값 변경 (생 데이터 값만)
 - [x] MODAL_FORM_PROPERTY + MODAL_BUTTONS_PROPERTY -> MODAL_FORM_CONFIG
 - [x] label 값 매치함수 제작
+- [x] 정적 데이터값(MODAL_CONFIG) 파일 분리
