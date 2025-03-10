@@ -167,7 +167,7 @@
 
 ### 피드백 바탕 수정 사항
 
-- [ ] header.cy.js -> exist 스펠링 오타, setTimeOut 비동기 처리 제거
+- [x] header.cy.js -> exist 스펠링 오타, setTimeout 비동기 처리 제거
 - [ ] e2e 테스트 코드 수정
   - [ ] exist -> be.visible 방식으로 변경
   - [ ] invoke("val", value) -> select()와 type()
