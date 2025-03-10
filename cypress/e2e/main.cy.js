@@ -19,9 +19,7 @@ describe("main E2E 테스트", () => {
 
     cy.get(".restaurant-list li").should("contain", inputTest.name).and("contain", inputTest.distance);
 
-    setTimeout(() => {
-      cy.get(".modal--open").should("not.be.visible");
-    }, 1000);
+    cy.get(".modal").should("not.be.visible");
   });
 
   it("모달창을 활성화 후, 취소하기 버튼을 누르면 모달이 닫힌다.", () => {
@@ -37,8 +35,6 @@ describe("main E2E 테스트", () => {
     cy.get("header button").click();
     cy.get(".modal-backdrop").click({ force: true });
 
-    setTimeout(() => {
-      cy.get(".modal--open").should("not.be.visible");
-    }, 1000);
+    cy.get(".modal").should("not.be.visible");
   });
 });
