@@ -183,9 +183,10 @@ function favoriteEventHandler({ mainElement, restaurantList, updateFavoriteListV
     const target = event.target;
     const starElement = target.closest(".favorite-star");
     if (!starElement) return;
-    starElement.classList.toggle("active");
     const restaurantName = starElement.dataset.name || "";
     const restaurant = restaurantList.getRestaurantByName(restaurantName);
+    const starElements = mainElement.querySelectorAll(`.favorite-star[data-name="${restaurantName}"]`);
+    starElements.forEach((element) => element.classList.toggle("active"));
     if (restaurant) {
       restaurant.toggleFavorite();
       restaurantList.updateLocalStorage();
@@ -681,16 +682,12 @@ function MainController() {
   if (!mainElement) throw new Error("main 요소를 찾을 수 없습니다.");
   const allListContainerElement = mainElement.querySelector(".all-restaurant-list-container");
   const favoriteListContainerElement = mainElement.querySelector(".favorite-restaurant-list-container");
-  if (!allListContainerElement || !favoriteListContainerElement)
-    throw new Error("list-container 요소를 찾을 수 없습니다.");
+  if (!allListContainerElement || !favoriteListContainerElement) throw new Error("list-container 요소를 찾을 수 없습니다.");
   const restaurantList = new RestaurantList(LIST_ITEM_CONTENTS);
   const { listElement, updateListView } = ListController(restaurantList);
   const { favoriteListElement, updateFavoriteListView } = FavoriteListController(restaurantList);
   const { categorySortFilterContainerElement, updateCategorySortListView } = CategorySortFilterController(updateListView);
-  const modalElement = ModalController({
-    updateCategorySortListView,
-    restaurantList
-  });
+  const modalElement = ModalController({ updateCategorySortListView, restaurantList });
   const tabContainerElement = TabController({ mainElement, updateCategorySortListView, updateFavoriteListView });
   const headerElement = HeaderController(modalElement);
   app.prepend(headerElement);
