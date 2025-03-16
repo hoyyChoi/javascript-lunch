@@ -258,6 +258,14 @@ const SELECT_CATEGORY_MODAL = ["한식", "중식", "일식", "양식", "아시�
 const SELECT_DISTANCE = ["5분 내", "10분 내", "15분 내", "20분 내", "30분 내"];
 const SELECT_CATEGORY = ["전체", "한식", "중식", "일식", "양식", "아시안", "기타"];
 const SELECT_SORTING = ["이름순", "거리순"];
+const CATRGORY_IMAGE_PATH = {
+  한식: "/category-korean.png",
+  중식: "/category-chinese.png",
+  일식: "/category-japanese.png",
+  양식: "/category-western.png",
+  아시안: "/category-asian.png",
+  기타: "/category-etc.png"
+};
 const CATEGORY_SORT_FILTER_DATA = [
   { name: "category", id: "category-filter", options: SELECT_CATEGORY, className: "restaurant-filter" },
   { name: "sorting", id: "sorting-filter", options: SELECT_SORTING, className: "restaurant-filter" }
@@ -304,14 +312,6 @@ function Button({ type, stylingBased, text }) {
   buttonElement.className = `button button--${stylingBased} text-caption`;
   return buttonElement;
 }
-const CATRGORY_IMAGE_PATH$1 = {
-  한식: "./public/category-korean.png",
-  중식: "./public/category-chinese.png",
-  일식: "./public/category-japanese.png",
-  양식: "./public/category-western.png",
-  아시안: "./public/category-asian.png",
-  기타: "./public/category-etc.png"
-};
 function DetailItem({ category, name, distance, description, link, favoriteStar }) {
   const divElement = document.createElement("div");
   divElement.classList.add("detail-restaurant");
@@ -319,7 +319,7 @@ function DetailItem({ category, name, distance, description, link, favoriteStar 
   `
   <div class="restaurant__category__star mb-16">
       <div class="restaurant__category">
-        <img src=${CATRGORY_IMAGE_PATH$1[category]} alt=${category} class="category-icon" />
+        <img src=${CATRGORY_IMAGE_PATH[category]} alt=${category} class="category-icon" />
       </div>
       <div
       class="favorite-star ${favoriteStar && "active"}"}
@@ -391,14 +391,6 @@ function DetailModalController({
   });
   return modalElement;
 }
-const CATRGORY_IMAGE_PATH = {
-  한식: "./public/category-korean.png",
-  중식: "./public/category-chinese.png",
-  일식: "./public/category-japanese.png",
-  양식: "./public/category-western.png",
-  아시안: "./public/category-asian.png",
-  기타: "./public/category-etc.png"
-};
 function ListItem({ category, name, distance, description, favoriteStar }) {
   const listElement = document.createElement("li");
   listElement.dataset.name = name;
@@ -462,7 +454,7 @@ function Header({ TITLE, LABEL }) {
   headerElement.innerHTML = `
     <h1 class="gnb__title text-title">${TITLE}</h1>
     <button type="button" class="gnb__button" aria-label=${LABEL}>
-      <img src="./public/add-button.png" alt=${LABEL} />
+      <img src="/add-button.png" alt=${LABEL} />
     </button>
     `;
   return headerElement;
