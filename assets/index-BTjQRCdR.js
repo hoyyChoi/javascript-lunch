@@ -259,12 +259,12 @@ const SELECT_DISTANCE = ["5분 내", "10분 내", "15분 내", "20분 내", "30�
 const SELECT_CATEGORY = ["전체", "한식", "중식", "일식", "양식", "아시안", "기타"];
 const SELECT_SORTING = ["이름순", "거리순"];
 const CATRGORY_IMAGE_PATH = {
-  한식: "/category-korean.png",
-  중식: "/category-chinese.png",
-  일식: "/category-japanese.png",
-  양식: "/category-western.png",
-  아시안: "/category-asian.png",
-  기타: "/category-etc.png"
+  한식: "./category-korean.png",
+  중식: "./category-chinese.png",
+  일식: "./category-japanese.png",
+  양식: "./category-western.png",
+  아시안: "./category-asian.png",
+  기타: "./category-etc.png"
 };
 const CATEGORY_SORT_FILTER_DATA = [
   { name: "category", id: "category-filter", options: SELECT_CATEGORY, className: "restaurant-filter" },
@@ -454,7 +454,7 @@ function Header({ TITLE, LABEL }) {
   headerElement.innerHTML = `
     <h1 class="gnb__title text-title">${TITLE}</h1>
     <button type="button" class="gnb__button" aria-label=${LABEL}>
-      <img src="/add-button.png" alt=${LABEL} />
+      <img src="./add-button.png" alt=${LABEL} />
     </button>
     `;
   return headerElement;
